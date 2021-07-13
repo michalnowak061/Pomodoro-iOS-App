@@ -18,10 +18,12 @@
 
 - (void)setup {
   self.timeInterval = 1.0;
-  self.seconds = 60;
 }
 
-- (void)start {
+- (void)start:(unsigned int)seconds {
+  self.initialSeconds = seconds;
+  self.seconds = self.initialSeconds;
+
   self.timer = [NSTimer scheduledTimerWithTimeInterval: self.timeInterval
                                                 target: self
                                               selector:@selector(tickHandle)
@@ -32,6 +34,8 @@
 - (void)stop {
   [self.timer invalidate];
   self.timer = nil;
+  self.seconds = self.initialSeconds;
+  [self.delegate didUpdate:self];
 }
 
 - (void)tickHandle {
@@ -40,7 +44,7 @@
     return;
   }
   self.seconds -= 1;
-  [self.delegate didFinishTickPeriod:self];
+  [self.delegate didUpdate:self];
 }
 
 - (NSString*)time {
@@ -48,7 +52,11 @@
   unsigned int m = (self.seconds / 60) % 60;
   unsigned int s = self.seconds % 60;
 
-  return [NSString stringWithFormat:@"%d : %d : %d", h, m, s];
+  return [NSString stringWithFormat:@"%02d : %02d : %02d", h, m, s];
+}
+
+- (float)currentProgress {
+  return ((float)self.initialSeconds - (float)self.seconds) / (float)self.initialSeconds;
 }
 
 @end

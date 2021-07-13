@@ -14,6 +14,8 @@
 
 @property ViewControllerState state;
 
+@property (weak, nonatomic) IBOutlet MBCircularProgressBarView *progressBar;
+
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
@@ -42,11 +44,33 @@
 
 // MARK: - IBAction's
 - (IBAction)buttonTouchUpInside:(UIButton *)sender {
-  [self.pomodoroTimer start];
+  switch (self.state) {
+    case init:
+      [self.pomodoroTimer start:120];
+      [self.button setTitle:@"Stop" forState:normal];
+      self.state = counting;
+      break;
+    case counting:
+      [self.pomodoroTimer stop];
+      [self.button setTitle:@"Start" forState:normal];
+      self.state = init;
+      break;
+    case brakeout:
+      break;
+    case longBrakeout:
+      break;
+  }
 }
 
-- (void)didFinishTickPeriod:(id)sender {
-  self.label.text = [sender time];
+- (void)didUpdate:(id)sender {
+  NSString *actualTime = [sender time];
+  float progress = [sender currentProgress];
+
+  [UIView animateWithDuration:0.5 animations:^{
+    self.progressBar.value = progress;
+  }];
+
+  self.label.text = actualTime;
 }
 
 @end

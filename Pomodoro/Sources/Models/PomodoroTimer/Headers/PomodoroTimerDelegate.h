@@ -9,7 +9,7 @@
 #define PomodoroTimerDelegate_h
 
 @protocol PomodoroTimerDelegate
-- (void)didFinishTickPeriod:(id) sender;
+- (void)didUpdate:(id) sender;
 @end
 
 #endif /* PomodoroTimerDelegate_h */

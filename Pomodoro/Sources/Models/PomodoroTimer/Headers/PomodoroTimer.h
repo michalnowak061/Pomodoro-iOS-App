@@ -10,7 +10,6 @@
 
 #import <Foundation/Foundation.h>
 #import "PomodoroTimerDelegate.h"
-#import "Time.h"
 
 @interface PomodoroTimer : NSObject
 
@@ -20,13 +19,17 @@
 
 @property NSTimer *timer;
 
+@property unsigned int initialSeconds;
+
 @property unsigned int seconds;
 
-- (void)start;
+- (void)start:(unsigned int)seconds;
 
 - (void)stop;
 
 - (NSString*)time;
+
+- (float)currentProgress;
 
 @end
 

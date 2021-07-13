@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		9D68E0DD269DC90800C0912C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D68E0DB269DC90800C0912C /* LaunchScreen.storyboard */; };
 		9D68E0E0269DC90800C0912C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68E0DF269DC90800C0912C /* main.m */; };
 		9D68E0EA269DC90900C0912C /* PomodoroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68E0E9269DC90900C0912C /* PomodoroTests.m */; };
-		9D68E10D269DEAF300C0912C /* ViewControllerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68E10C269DEAF300C0912C /* ViewControllerState.m */; };
 		9D68E115269DEEF500C0912C /* PomodoroTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68E114269DEEF500C0912C /* PomodoroTimer.m */; };
 		BA56B05507F932DE5CD81158 /* Pods_PomodoroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF64D2D3EE11D76FDAD5C9B /* Pods_PomodoroTests.framework */; };
 /* End PBXBuildFile section */
@@ -52,12 +51,10 @@
 		9D68E0E5269DC90900C0912C /* PomodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D68E0E9269DC90900C0912C /* PomodoroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodoroTests.m; sourceTree = "<group>"; };
 		9D68E0EB269DC90900C0912C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D68E10C269DEAF300C0912C /* ViewControllerState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerState.m; sourceTree = "<group>"; };
 		9D68E10E269DEB3800C0912C /* ViewControllerState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerState.h; sourceTree = "<group>"; };
 		9D68E110269DEEC200C0912C /* PomodoroTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroTimer.h; sourceTree = "<group>"; };
 		9D68E114269DEEF500C0912C /* PomodoroTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodoroTimer.m; sourceTree = "<group>"; };
 		9D68E117269E097700C0912C /* PomodoroTimerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroTimerDelegate.h; sourceTree = "<group>"; };
-		9D68E118269E0FE200C0912C /* Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		9E64829649205CCB4675A9E3 /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,7 +202,6 @@
 		9D68E10B269DEAB800C0912C /* StateMachines */ = {
 			isa = PBXGroup;
 			children = (
-				9D68E10C269DEAF300C0912C /* ViewControllerState.m */,
 				9D68E10E269DEB3800C0912C /* ViewControllerState.h */,
 			);
 			path = StateMachines;
@@ -224,7 +220,6 @@
 			children = (
 				9D68E110269DEEC200C0912C /* PomodoroTimer.h */,
 				9D68E117269E097700C0912C /* PomodoroTimerDelegate.h */,
-				9D68E118269E0FE200C0912C /* Time.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -255,7 +250,6 @@
 				004D2B3BF69FD087B9FEC7DC /* Pods-PomodoroTests.debug.xcconfig */,
 				1115D06916D43266AFBF6849 /* Pods-PomodoroTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -429,7 +423,6 @@
 				9D68E0D5269DC90300C0912C /* ViewController.m in Sources */,
 				9D68E0CF269DC90300C0912C /* AppDelegate.m in Sources */,
 				9D68E0E0269DC90800C0912C /* main.m in Sources */,
-				9D68E10D269DEAF300C0912C /* ViewControllerState.m in Sources */,
 				9D68E0D2269DC90300C0912C /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
