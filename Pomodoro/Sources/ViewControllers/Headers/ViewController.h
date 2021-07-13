@@ -6,9 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewControllerState.h"
+#import "PomodoroTimer.h"
 
 @interface ViewController : UIViewController
-
 
 @end
 
