@@ -10,6 +10,8 @@
 
 @protocol PomodoroTimerDelegate
 - (void)didUpdate:(id) sender;
+
+- (void)didEnd:(id) sender;
 @end
 
 #endif /* PomodoroTimerDelegate_h */

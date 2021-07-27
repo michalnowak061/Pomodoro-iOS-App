@@ -46,15 +46,13 @@
 - (IBAction)buttonTouchUpInside:(UIButton *)sender {
   switch (self.state) {
     case init:
-      [self.pomodoroTimer start:120];
+      [self.pomodoroTimer start:10];
       [self.button setTitle:@"Stop" forState:normal];
       self.state = counting;
-      break;
     case counting:
       [self.pomodoroTimer stop];
       [self.button setTitle:@"Start" forState:normal];
       self.state = init;
-      break;
     case brakeout:
       break;
     case longBrakeout:
@@ -71,6 +69,11 @@
   }];
 
   self.label.text = actualTime;
+}
+
+- (void)didEnd:(id)sender {
+  self.state = init;
+  [self.button setTitle:@"Start" forState:normal];
 }
 
 @end

@@ -1,17 +1,17 @@
 //
-//  PomodoroTests.m
+//  PomodoroTimerTests.m
 //  PomodoroTests
 //
-//  Created by Michał Nowak on 13/07/2021.
+//  Created by Michał Nowak on 27/07/2021.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface PomodoroTests : XCTestCase
+@interface PomodoroTimerTests : XCTestCase
 
 @end
 
-@implementation PomodoroTests
+@implementation PomodoroTimerTests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -21,14 +21,15 @@
 }
 
 - (void)start:(unsigned int)seconds {
+  NSLog(@"start!");
   self.initialSeconds = seconds;
   self.seconds = self.initialSeconds;
 
   self.timer = [NSTimer scheduledTimerWithTimeInterval: self.timeInterval
                                                 target: self
-                                              selector:@selector(tickHandle)
+                                              selector: @selector(tickHandle)
                                               userInfo: nil
-                                               repeats:YES];
+                                               repeats: YES];
 }
 
 - (void)stop {
@@ -39,8 +40,10 @@
 }
 
 - (void)tickHandle {
+  NSLog(@"tickHandle!");
   if (self.seconds <= 0) {
     [self stop];
+    [self.delegate didEnd:self];
     return;
   }
   self.seconds -= 1;
