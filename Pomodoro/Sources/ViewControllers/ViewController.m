@@ -44,7 +44,7 @@
 - (void)setupTimer {
   PomodoroTimerParameters parameters;
   parameters.intervals = 2;
-  parameters.taskSeconds = 1;
+  parameters.taskSeconds = 1200;
   parameters.breakoutSeconds = 2;
   parameters.longBreakoutSeconds = 3;
 
@@ -79,6 +79,12 @@
 
 - (void)setupButton {
   [self.button setTitle:@"Start" forState:normal];
+  self.button.layer.masksToBounds = NO;
+  self.button.layer.shadowOffset = CGSizeMake(1.5f, 1.5f);
+  self.button.layer.shadowColor = UIColor.blackColor.CGColor;
+  self.button.layer.shadowRadius = 2;
+  self.button.layer.shadowOpacity = 0.5;
+  self.button.layer.cornerRadius = 10;
 }
 
 // MARK: - IBAction's
