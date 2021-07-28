@@ -12,6 +12,8 @@
 - (void)didUpdate:(id) sender;
 
 - (void)didEnd:(id) sender;
+
+- (void)PomodoroTimer:(id) sender withState:(PomodoroTimerState) state;
 @end
 
 #endif /* PomodoroTimerDelegate_h */

@@ -14,9 +14,11 @@
 
 @property ViewControllerState state;
 
+@property (weak, nonatomic) IBOutlet UILabel *stateNameLabel;
+
 @property (weak, nonatomic) IBOutlet MBCircularProgressBarView *progressBar;
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
@@ -31,11 +33,48 @@
 }
 
 - (void)setup {
-  self.pomodoroTimer = [[PomodoroTimer alloc] init];
-  self.pomodoroTimer.delegate = self;
   self.state = init;
-  
+
+  [self setupTimer];
+  [self setupStateNameLabel];
+  [self setupTimeLabelAndProgressBar];
   [self setupButton];
+}
+
+- (void)setupTimer {
+  PomodoroTimerParameters parameters;
+  parameters.intervals = 2;
+  parameters.taskSeconds = 1;
+  parameters.breakoutSeconds = 2;
+  parameters.longBreakoutSeconds = 3;
+
+  self.pomodoroTimer = [[PomodoroTimer alloc] init:parameters];
+  self.pomodoroTimer.delegate = self;
+}
+
+- (void)setupStateNameLabel {
+  switch (self.pomodoroTimer.state) {
+    case task:
+      self.stateNameLabel.text = @"Task";
+      break;
+    case breakout:
+      self.stateNameLabel.text = @"Breakout";
+      break;
+    case longBreakout:
+      self.stateNameLabel.text = @"Long breakout";
+      break;
+  }
+}
+
+- (void)setupTimeLabelAndProgressBar {
+  NSString *actualTime = [self.pomodoroTimer time];
+  float progress = [self.pomodoroTimer currentProgress];
+
+  [UIView animateWithDuration:0.5 animations:^{
+    self.progressBar.value = progress;
+  }];
+
+  self.timeLabel.text = actualTime;
 }
 
 - (void)setupButton {
@@ -46,13 +85,15 @@
 - (IBAction)buttonTouchUpInside:(UIButton *)sender {
   switch (self.state) {
     case init:
-      [self.pomodoroTimer start:10];
+      [self.pomodoroTimer start];
       [self.button setTitle:@"Stop" forState:normal];
       self.state = counting;
+      break;
     case counting:
       [self.pomodoroTimer stop];
       [self.button setTitle:@"Start" forState:normal];
       self.state = init;
+      break;
     case brakeout:
       break;
     case longBrakeout:
@@ -61,19 +102,16 @@
 }
 
 - (void)didUpdate:(id)sender {
-  NSString *actualTime = [sender time];
-  float progress = [sender currentProgress];
-
-  [UIView animateWithDuration:0.5 animations:^{
-    self.progressBar.value = progress;
-  }];
-
-  self.label.text = actualTime;
+  [self setupTimeLabelAndProgressBar];
 }
 
 - (void)didEnd:(id)sender {
   self.state = init;
   [self.button setTitle:@"Start" forState:normal];
+}
+
+- (void)PomodoroTimer:(id)sender withState:(PomodoroTimerState)state {
+  [self setupStateNameLabel];
 }
 
 @end

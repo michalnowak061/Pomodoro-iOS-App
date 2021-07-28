@@ -10,56 +10,122 @@
 
 @implementation PomodoroTimer
 
-- (id)init {
+- (id)init:(struct PomodoroTimerParameters)parameters {
   self = [super init];
+  self.parameters = parameters;
   [self setup];
   return self;
 }
 
 - (void)setup {
+  self.state = task;
   self.timeInterval = 1.0;
+  self.currentInterval = 0;
+  [self setSeconds];
 }
 
-- (void)start:(unsigned int)seconds {
-  NSLog(@"start!");
-  self.initialSeconds = seconds;
-  self.seconds = self.initialSeconds;
-
+- (void)start {
+  self.timer = nil;
   self.timer = [NSTimer scheduledTimerWithTimeInterval: self.timeInterval
                                                 target: self
                                               selector: @selector(tickHandle)
                                               userInfo: nil
                                                repeats: YES];
+  [self setSeconds];
+}
+
+- (void)setSeconds {
+  switch (self.state) {
+    case task:
+      self.seconds = self.parameters.taskSeconds;
+      break;
+    case breakout:
+      self.seconds = self.parameters.breakoutSeconds;
+      break;
+    case longBreakout:
+      self.seconds = self.parameters.longBreakoutSeconds;
+      break;
+  }
+
+  self.currentSeconds = self.seconds;
 }
 
 - (void)stop {
   [self.timer invalidate];
-  self.timer = nil;
-  self.seconds = self.initialSeconds;
+  [self setSeconds];
   [self.delegate didUpdate:self];
+}
+
+- (void)reset {
+  self.currentInterval = 0;
 }
 
 - (void)tickHandle {
-  NSLog(@"tickHandle!");
-  if (self.seconds <= 0) {
+  if (self.currentSeconds <= 0) {
+    [self changeState];
+    [self handleState];
+    [self setSeconds];
     [self stop];
     [self.delegate didEnd:self];
+    self.currentInterval += 1;
     return;
   }
-  self.seconds -= 1;
+  self.currentSeconds -= 1;
   [self.delegate didUpdate:self];
 }
 
+- (void)changeState {
+  if (self.checkLongBreakout) {
+    self.state = longBreakout;
+  } else if (self.checkBreakout) {
+    self.state = breakout;
+  } else {
+    self.state = task;
+  }
+}
+
+- (void)handleState {
+  switch (self.state) {
+    case task:
+      break;
+    case breakout:
+      break;
+    case longBreakout:
+      [self reset];
+      break;
+  }
+
+  [self.delegate PomodoroTimer:self withState:self.state];
+}
+
+- (bool)checkBreakout {
+  if ((self.currentInterval + 1) % 2 != 0) {
+    return true;
+  }
+  return false;
+}
+
+- (bool)checkLongBreakout {
+  if (self.currentInterval == (self.parameters.intervals) * 2) {
+    return true;
+  }
+  return false;
+}
+
 - (NSString*)time {
-  unsigned int h = self.seconds / 3600;
-  unsigned int m = (self.seconds / 60) % 60;
-  unsigned int s = self.seconds % 60;
+  if (self.currentSeconds < 0) {
+    return [NSString stringWithFormat:@"%02d : %02d : %02d", 0, 0, 0];
+  }
+
+  unsigned int h = self.currentSeconds / 3600;
+  unsigned int m = (self.currentSeconds / 60) % 60;
+  unsigned int s = self.currentSeconds % 60;
 
   return [NSString stringWithFormat:@"%02d : %02d : %02d", h, m, s];
 }
 
 - (float)currentProgress {
-  return ((float)self.initialSeconds - (float)self.seconds) / (float)self.initialSeconds;
+  return ((float)self.seconds - (float)self.currentSeconds) / (float)self.seconds;
 }
 
 @end
