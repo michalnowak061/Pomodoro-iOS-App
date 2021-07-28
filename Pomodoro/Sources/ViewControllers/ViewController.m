@@ -22,6 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
 
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+
 @end
 
 // MARK: - Implementation
@@ -39,6 +41,7 @@
   [self setupStateNameLabel];
   [self setupTimeLabelAndProgressBar];
   [self setupButton];
+  [self setupSettingsButton];
 }
 
 - (void)setupTimer {
@@ -85,6 +88,15 @@
   self.button.layer.shadowRadius = 2;
   self.button.layer.shadowOpacity = 0.5;
   self.button.layer.cornerRadius = 10;
+}
+
+- (void)setupSettingsButton {
+  self.settingsButton.layer.masksToBounds = NO;
+  self.settingsButton.layer.shadowOffset = CGSizeMake(1.5f, 1.5f);
+  self.settingsButton.layer.shadowColor = UIColor.blackColor.CGColor;
+  self.settingsButton.layer.shadowRadius = 2;
+  self.settingsButton.layer.shadowOpacity = 0.5;
+  self.settingsButton.layer.cornerRadius = self.settingsButton.frame.size.height / 2;
 }
 
 // MARK: - IBAction's

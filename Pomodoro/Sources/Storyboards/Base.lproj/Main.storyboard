@@ -100,6 +100,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dc1-xv-hFO">
+                                <rect key="frame" x="344" y="64" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.9584286809" green="0.27922331410000001" blue="0.23454449969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3N1-Zk-shi"/>
+                                    <constraint firstAttribute="width" secondItem="Dc1-xv-hFO" secondAttribute="height" multiplier="1:1" id="80k-fr-CK7"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="timer" catalog="system"/>
+                                <connections>
+                                    <segue destination="27N-eK-jxQ" kind="show" id="9EH-11-UVp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.49192864952818394" blue="0.40526136395989598" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,6 +123,8 @@
                             <constraint firstItem="p6J-jc-1D9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Evg-1N-AJa"/>
                             <constraint firstItem="p6J-jc-1D9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="80" id="J2x-qS-dPQ"/>
                             <constraint firstAttribute="trailing" secondItem="p6J-jc-1D9" secondAttribute="trailing" constant="80" id="Pxh-oR-EbN"/>
+                            <constraint firstItem="Dc1-xv-hFO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="pfp-7j-f8W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dc1-xv-hFO" secondAttribute="trailing" constant="20" id="sKm-E7-90R"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bdo-pq-Wpr" secondAttribute="bottom" constant="20" id="uGh-kx-OXk"/>
                             <constraint firstItem="bdo-pq-Wpr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="vuZ-fo-k3X"/>
                         </constraints>
@@ -117,6 +132,7 @@
                     <connections>
                         <outlet property="button" destination="hhj-wF-BLf" id="qTp-WS-HPj"/>
                         <outlet property="progressBar" destination="Wm2-Gm-tbU" id="FS5-JD-uWo"/>
+                        <outlet property="settingsButton" destination="Dc1-xv-hFO" id="kib-Q5-oa0"/>
                         <outlet property="stateNameLabel" destination="r3s-xP-2ud" id="On7-HF-6rB"/>
                         <outlet property="timeLabel" destination="JpI-8p-4mB" id="VTQ-Bp-zh3"/>
                     </connections>
@@ -125,8 +141,25 @@
             </objects>
             <point key="canvasLocation" x="2.8985507246376816" y="82.366071428571431"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="NNu-YT-mBQ">
+            <objects>
+                <viewController id="27N-eK-jxQ" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QRN-s8-W7g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MaA-ih-eI0"/>
+                        <color key="backgroundColor" red="1" green="0.49192864949999998" blue="0.40526136400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KgR-s1-7r0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UpE-jm-qY6" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="82"/>
+        </scene>
     </scenes>
     <resources>
         <image name="pomodoro_icon" width="256" height="256"/>
+        <image name="timer" catalog="system" width="128" height="121"/>
     </resources>
 </document>
