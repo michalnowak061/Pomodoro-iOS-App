@@ -6,9 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewControllerState.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 #import <MBCircularProgressBar/MBCircularProgressBarView.h>
+
+#import "ViewControllerState.h"
 #import "PomodoroTimer.h"
+#import "SettingsViewController.h"
 
 @interface ViewController : UIViewController
 

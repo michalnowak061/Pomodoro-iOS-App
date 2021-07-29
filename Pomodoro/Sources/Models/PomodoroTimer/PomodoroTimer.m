@@ -34,6 +34,12 @@
   [self setSeconds];
 }
 
+- (void)setParameters:(struct PomodoroTimerParameters)parameters {
+  _parameters = parameters;
+  [self setup];
+  [self.delegate didUpdate:self];
+}
+
 - (void)setSeconds {
   switch (self.state) {
     case task:

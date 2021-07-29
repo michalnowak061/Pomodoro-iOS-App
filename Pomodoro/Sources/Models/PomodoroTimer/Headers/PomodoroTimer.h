@@ -17,7 +17,7 @@
 
 @property (nonatomic, weak) id <PomodoroTimerDelegate> delegate;
 
-@property struct PomodoroTimerParameters parameters;
+@property (nonatomic) struct PomodoroTimerParameters parameters;
 
 @property PomodoroTimerState state;
 

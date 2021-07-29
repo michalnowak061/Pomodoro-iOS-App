@@ -16,7 +16,9 @@
 		9D68E0DD269DC90800C0912C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D68E0DB269DC90800C0912C /* LaunchScreen.storyboard */; };
 		9D68E0E0269DC90800C0912C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68E0DF269DC90800C0912C /* main.m */; };
 		9D68E115269DEEF500C0912C /* PomodoroTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D68E114269DEEF500C0912C /* PomodoroTimer.m */; };
+		9D98A4FC26B2E8C8001E31F4 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D98A4FB26B2E8C8001E31F4 /* alarm.mp3 */; };
 		9DFE3D7D26B06AFA00E7144D /* PomodoroTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE3D7C26B06AFA00E7144D /* PomodoroTimerTests.m */; };
+		9DFE3D8226B2BC8D00E7144D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE3D8126B2BC8D00E7144D /* SettingsViewController.m */; };
 		BA56B05507F932DE5CD81158 /* Pods_PomodoroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF64D2D3EE11D76FDAD5C9B /* Pods_PomodoroTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,9 +56,12 @@
 		9D68E110269DEEC200C0912C /* PomodoroTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroTimer.h; sourceTree = "<group>"; };
 		9D68E114269DEEF500C0912C /* PomodoroTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodoroTimer.m; sourceTree = "<group>"; };
 		9D68E117269E097700C0912C /* PomodoroTimerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroTimerDelegate.h; sourceTree = "<group>"; };
+		9D98A4FB26B2E8C8001E31F4 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		9DFE3D7C26B06AFA00E7144D /* PomodoroTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodoroTimerTests.m; sourceTree = "<group>"; };
 		9DFE3D7E26B16D6400E7144D /* PomodoroTimerState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroTimerState.h; sourceTree = "<group>"; };
 		9DFE3D7F26B1878500E7144D /* PomodoroTimerParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroTimerParameters.h; sourceTree = "<group>"; };
+		9DFE3D8026B2BC8D00E7144D /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9DFE3D8126B2BC8D00E7144D /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		9E64829649205CCB4675A9E3 /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +138,7 @@
 		9D68E103269DC9E000C0912C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9D98A4FA26B2E8A5001E31F4 /* Sounds */,
 				9D68E0DE269DC90800C0912C /* Info.plist */,
 				9D68E0D9269DC90800C0912C /* Assets.xcassets */,
 			);
@@ -187,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				9D68E0D4269DC90300C0912C /* ViewController.m */,
+				9DFE3D8126B2BC8D00E7144D /* SettingsViewController.m */,
 				9D68E10A269DCAEC00C0912C /* Headers */,
 				9D68E10B269DEAB800C0912C /* StateMachines */,
 			);
@@ -197,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				9D68E0D3269DC90300C0912C /* ViewController.h */,
+				9DFE3D8026B2BC8D00E7144D /* SettingsViewController.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -235,6 +243,14 @@
 				9D68E116269DEF4700C0912C /* Headers */,
 			);
 			path = PomodoroTimer;
+			sourceTree = "<group>";
+		};
+		9D98A4FA26B2E8A5001E31F4 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9D98A4FB26B2E8C8001E31F4 /* alarm.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		9DFE3D7B26B06AD000E7144D /* PomodoroTimerTests */ = {
@@ -347,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D98A4FC26B2E8C8001E31F4 /* alarm.mp3 in Resources */,
 				9D68E0DD269DC90800C0912C /* LaunchScreen.storyboard in Resources */,
 				9D68E0DA269DC90800C0912C /* Assets.xcassets in Resources */,
 				9D68E0D8269DC90300C0912C /* Main.storyboard in Resources */,
@@ -434,6 +451,7 @@
 				9D68E115269DEEF500C0912C /* PomodoroTimer.m in Sources */,
 				9D68E0D5269DC90300C0912C /* ViewController.m in Sources */,
 				9D68E0CF269DC90300C0912C /* AppDelegate.m in Sources */,
+				9DFE3D8226B2BC8D00E7144D /* SettingsViewController.m in Sources */,
 				9D68E0E0269DC90800C0912C /* main.m in Sources */,
 				9D68E0D2269DC90300C0912C /* SceneDelegate.m in Sources */,
 			);

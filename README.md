@@ -25,6 +25,15 @@ Simple pomodoro focus timer iOS app to quick start with Objective-C.
 
 ## Functionality
 
+- three timer states: task, breakout, long breakout
+- alarm with sound
+- customisable times for task, breakout and long breakout
+- customisable number of intervals
+
+<p align="center"> <img src="Screenshots/screenshot_1.png"{:height="20%" width="20%"} />
+		               <img src="Screenshots/screenshot_2.png"{:height="20%" width="20%"} />
+                   <img src="Screenshots/screenshot_3.png"{:height="20%" width="20%"} /> </p>
+
 ## How to build
 
 In app main folder run this command:
@@ -34,6 +43,8 @@ pod install
 After installing dependencies, you can run the project(`Pomodoro.xcworkspace`).
 
 ## Demo
+
+<p align="center"> <img src="Screenshots/demo.gif" {:height="25%" width="25%"} /> </p>
 
 ## Sources
 - circular progress bar: https://github.com/MatiBot/MBCircularProgressBar
